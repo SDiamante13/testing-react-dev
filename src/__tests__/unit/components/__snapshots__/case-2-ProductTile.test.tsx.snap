@@ -1,0 +1,5 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`The <ProductTile /> component renders a product tile with name, image and price 1`] = `[Function]`;
+
+exports[`The <ProductTile /> component should match snapshot 1`] = `[Function]`;
