@@ -15,39 +15,39 @@ describe('The <ProductTile /> component', () => {
     isActive: true,
     isNew: true,
     isSoldOut: false,
-    priceUnformatted: 42.00
+    priceUnformatted: 42.00,
   }
 
   const setupProductTile = (props = defaultProductProps) => render(<ProductTile {...props}/>)
 
   it('should match snapshot', () => {
-    const { asFragment } = setupProductTile();
+    const { asFragment } = setupProductTile()
 
-    expect(asFragment).toMatchSnapshot();
+    expect(asFragment).toMatchSnapshot()
   })
 
   it('renders a product tile with name, image and price', () => {
-    setupProductTile();
+    setupProductTile()
 
-    screen.getByText(defaultProductProps.name);
-    screen.getByText(defaultProductProps.price);
-    screen.getByAltText(defaultProductProps.name);
+    screen.getByText(defaultProductProps.name)
+    screen.getByText(defaultProductProps.price)
+    screen.getByAltText(defaultProductProps.name)
   })
 
   it('renders a product tile with name and price only', () => {
     setupProductTile({
       ...defaultProductProps,
-      image: undefined
-    });
+      image: undefined,
+    })
 
-    screen.getByText(defaultProductProps.name);
-    screen.getByText(defaultProductProps.price);
-    expect(screen.queryByTestId('ProductTileImage')).toBeNull();
+    screen.getByText(defaultProductProps.name)
+    screen.getByText(defaultProductProps.price)
+    expect(screen.queryByTestId('ProductTileImage')).toBeNull()
   })
 
   it('has no accessibility violations', async () => {
-    const {container} = setupProductTile();
+    const { container } = setupProductTile()
 
-    expect(await axe(container)).toHaveNoViolations();
+    expect(await axe(container)).toHaveNoViolations()
   })
 })
